@@ -3,26 +3,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player
+public class Player : MonoBehaviour
 {   
-    public CharacterController PlayerController { get; private set; }
-    public Movement Movement { get; private set; }
+    [SerializeField] private PlayerCharacteristics _characteristics;
 
-    public bool IsInitialized { get; private set; }
+    private Movement _movement;
+    private CharacterController _characterController;
 
-    public void Init(CharacterController playerController, Movement movement)
+    private void Awake()
     {
-        Movement = movement;
-        PlayerController = playerController;
+        _characterController = GetComponent<CharacterController>();
+        _movement = GetComponent<Movement>();
+        _movement.Init(_characterController, _characteristics);
 
-        IsInitialized = true;
-    }
-
-    private void CheckClassInit()
-    {
-        if (!IsInitialized)
-        {
-            throw new Exception("Player Facade is not initialized");
-        }
+        PlayerFacade.Init(_characterController, _movement, _characteristics);
     }
 }

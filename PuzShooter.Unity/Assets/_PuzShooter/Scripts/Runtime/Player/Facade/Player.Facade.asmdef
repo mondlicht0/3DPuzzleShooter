@@ -2,7 +2,8 @@
     "name": "Player.Facade",
     "rootNamespace": "",
     "references": [
-        "GUID:3dfd0169a5a0c094fabe15b7d74171cf"
+        "GUID:3dfd0169a5a0c094fabe15b7d74171cf",
+        "GUID:b67175c17bb89bd469a5491395180609"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
