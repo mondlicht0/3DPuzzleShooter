@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5f364d9a443e863488383c88362ea370, type: 3}
-  m_Name: PlayerCharacteristics
+  m_Script: {fileID: 11500000, guid: 916e36dae8d3310428966081b33d2ac4, type: 3}
+  m_Name: DefaultBullet
   m_EditorClassIdentifier: 
-  MovementSpeed: 15
-  XSensitivity: 1
-  YSensitivity: 2.33
+  Speed: 7
+  IsBouncy: 0
+  IsThroWalls: 0
