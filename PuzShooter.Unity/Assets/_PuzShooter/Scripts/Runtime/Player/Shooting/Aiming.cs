@@ -5,7 +5,7 @@ using Cinemachine;
 
 public class Aiming : MonoBehaviour
 {
-    [SerializeField] private GameObject _weapon;
+    [SerializeField] private GameObject _body;
     [SerializeField] private Camera _camera;
 
     private Controls _controls;
@@ -42,7 +42,7 @@ public class Aiming : MonoBehaviour
 
         if (lookDirection != Vector3.zero)
         {
-            transform.rotation = Quaternion.LookRotation(lookDirection);
+            _body.transform.rotation = Quaternion.LookRotation(lookDirection);
         }
     }
 }
