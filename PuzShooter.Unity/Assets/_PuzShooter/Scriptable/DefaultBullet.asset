@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 916e36dae8d3310428966081b33d2ac4, type: 3}
   m_Name: DefaultBullet
   m_EditorClassIdentifier: 
-  Speed: 7
+  Speed: 4
   IsBouncy: 0
   IsThroWalls: 0

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
@@ -15,7 +13,11 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
-        _bulletRigidbody.velocity = PlayerFacade.Aiming.LookDirection * _characteristics.Speed;
+        _bulletRigidbody.velocity = (PlayerFacade.Aiming.WorldMousePosition - transform.position) * _characteristics.Speed;
+    }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(other.gameObject);
     }
 }
