@@ -38,18 +38,17 @@ public class Aiming : MonoBehaviour
     {
         Vector3 mousePosition = _controls.Gameplay.Aim.ReadValue<Vector2>();
 
-        _worldMousePosition = _camera.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, _camera.transform.position.y));
+        //_worldMousePosition = _camera.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, _camera.transform.position.y));
 
         Ray ray = _camera.ScreenPointToRay(new Vector3(mousePosition.x, mousePosition.y, _camera.transform.position.y));
 
         if (Physics.Raycast(ray, out RaycastHit hitInfo))
         {
-            _worldMousePosition = new Vector3(hitInfo.point.x, 0, hitInfo.point.z);
+            _worldMousePosition = new Vector3(hitInfo.point.x, 2, hitInfo.point.z);
         }
 
         _lookDirection = _worldMousePosition - transform.position;
         _lookDirection.y = 0;
-        _worldMousePosition.y = 0;
 
         _body.transform.rotation = Quaternion.LookRotation(_lookDirection);
         _target.transform.position = _worldMousePosition;

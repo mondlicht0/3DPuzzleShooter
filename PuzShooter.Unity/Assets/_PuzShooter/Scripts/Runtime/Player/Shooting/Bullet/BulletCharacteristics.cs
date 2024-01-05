@@ -6,5 +6,6 @@ public class BulletCharacteristics : ScriptableObject
     public float Speed = 10f;
 
     public bool IsBouncy;
+    public int MaxNumOfBounces = 3;
     public bool IsThroWalls;
 }

@@ -26,6 +26,6 @@ public class Shooting : MonoBehaviour
 
     private void Shoot()
     {
-        var bullet = Instantiate(_bullet, _spawnPointBullet.position, Quaternion.identity);
+        var bullet = Instantiate(_bullet, _spawnPointBullet.position + Vector3.up, Quaternion.identity);
     }
 }
