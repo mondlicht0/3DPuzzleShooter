@@ -12,6 +12,8 @@ public class Bullet : MonoBehaviour
     private float _currentSpeed;
     private int _currentBounces = 0;
 
+    public BulletCharacteristics Characteristics { get { return _characteristics; } }
+
     private void Awake()
     {
         _bulletRigidbody = GetComponent<Rigidbody>();
@@ -19,7 +21,7 @@ public class Bullet : MonoBehaviour
 
     private void Start()
     {
-        _bulletRigidbody.velocity = (PlayerFacade.Aiming.WorldMousePosition - transform.position).normalized * _characteristics.Speed;
+        InitBullet(PlayerFacade.PlayerController.transform);
     }
 
     private void LateUpdate()
@@ -30,10 +32,18 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         Bounce(collision);
-        if (collision.collider.gameObject.layer == 7)
-        {
-            Destroy(collision.collider.gameObject);
+    }
 
+    private void InitBullet(Transform player = null)
+    {
+        if (_characteristics.IsPlayersBullet)
+        {
+            _bulletRigidbody.velocity = (PlayerFacade.Aiming.WorldMousePosition - transform.position).normalized * _characteristics.Speed;
+        }
+
+        else
+        {
+            _bulletRigidbody.velocity = (player.position - transform.position).normalized * _characteristics.Speed;
         }
     }
 

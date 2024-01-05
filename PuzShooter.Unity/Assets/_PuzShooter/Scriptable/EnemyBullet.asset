@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 916e36dae8d3310428966081b33d2ac4, type: 3}
-  m_Name: DefaultBullet
+  m_Name: EnemyBullet
   m_EditorClassIdentifier: 
   IsPlayersBullet: 0
-  Speed: 50
-  IsBouncy: 1
+  Speed: 10
+  IsBouncy: 0
   MaxNumOfBounces: 3
   IsThroWalls: 0

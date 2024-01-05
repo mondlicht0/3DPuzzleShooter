@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Shooting : MonoBehaviour
 {
-    [SerializeField] private Transform _spawnPointBullet;
+    [SerializeField] private Transform _bulletsSpawnPoint;
     [SerializeField] private GameObject _bullet;
     private Controls _controls;
 
@@ -10,7 +10,7 @@ public class Shooting : MonoBehaviour
     {
         _controls.Enable();
 
-        _controls.Gameplay.Shoot.performed += ctx => Shoot();
+        _controls.Gameplay.Shoot.performed += ctx => Shoot(_bullet, _bulletsSpawnPoint);
     }
 
     private void OnDisable()
@@ -24,8 +24,8 @@ public class Shooting : MonoBehaviour
     }
 
 
-    private void Shoot()
+    public void Shoot(GameObject bullet, Transform bulletsSpawnPoint)
     {
-        var bullet = Instantiate(_bullet, _spawnPointBullet.position + Vector3.up, Quaternion.identity);
+        var newBullet = Instantiate(bullet, bulletsSpawnPoint.position + Vector3.up / 2, Quaternion.identity);
     }
 }
