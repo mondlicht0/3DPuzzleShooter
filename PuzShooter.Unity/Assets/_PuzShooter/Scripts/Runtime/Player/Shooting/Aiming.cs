@@ -9,7 +9,9 @@ public class Aiming : MonoBehaviour
     [SerializeField] private Camera _camera;
 
     private Controls _controls;
-    private Vector3 _pointerInput;
+    private Vector3 _lookDirection;
+
+    public Vector3 LookDirection { get { return _lookDirection; } }
 
     private void OnEnable()
     {
@@ -37,12 +39,12 @@ public class Aiming : MonoBehaviour
 
         Vector3 worldMousePosition = _camera.ScreenToWorldPoint(new Vector3(mousePosition.x, mousePosition.y, _camera.transform.position.y));
 
-        Vector3 lookDirection = worldMousePosition - transform.position;
-        lookDirection.y = 0;
+        _lookDirection = worldMousePosition - transform.position;
+        _lookDirection.y = 0;
 
-        if (lookDirection != Vector3.zero)
+        if (_lookDirection != Vector3.zero)
         {
-            _body.transform.rotation = Quaternion.LookRotation(lookDirection);
+            _body.transform.rotation = Quaternion.LookRotation(_lookDirection);
         }
     }
 }
