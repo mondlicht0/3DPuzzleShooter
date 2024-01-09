@@ -1837,12 +1837,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &695046740 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7304905862445264378, guid: 8637fbc235e1d004db9fbe67b810fe78,
-    type: 3}
-  m_PrefabInstance: {fileID: 3157375456657026265}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &747422306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2975,7 +2969,7 @@ GameObject:
   - component: {fileID: 1202618709}
   - component: {fileID: 1202618708}
   - component: {fileID: 1202618707}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3612,6 +3606,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1340fa03402563418db465030f50175, type: 3}
+--- !u!4 &1574973629 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2677091372255219976, guid: 8637fbc235e1d004db9fbe67b810fe78,
+    type: 3}
+  m_PrefabInstance: {fileID: 3157375456657026265}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1607463704
 GameObject:
   m_ObjectHideFlags: 0
@@ -4361,7 +4361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0499b7813ce3ef549b42a0e76555d614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spawnPointBullet: {fileID: 695046740}
+  _bulletsSpawnPoint: {fileID: 1574973629}
   _bullet: {fileID: 7743626916899197540, guid: e72b4852995054a43b894e2123568a9c, type: 3}
 --- !u!1 &1934299372
 GameObject:
@@ -5204,10 +5204,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2511380562192315450, guid: 8637fbc235e1d004db9fbe67b810fe78,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2590444836025003999, guid: 8637fbc235e1d004db9fbe67b810fe78,
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2590444836025003999, guid: 8637fbc235e1d004db9fbe67b810fe78,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2662357353784247627, guid: 8637fbc235e1d004db9fbe67b810fe78,
         type: 3}
@@ -5274,6 +5284,16 @@ PrefabInstance:
       propertyPath: _target
       value: 
       objectReference: {fileID: 1202618705}
+    - target: {fileID: 7702115736558542560, guid: 8637fbc235e1d004db9fbe67b810fe78,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7971517541700359492, guid: 8637fbc235e1d004db9fbe67b810fe78,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

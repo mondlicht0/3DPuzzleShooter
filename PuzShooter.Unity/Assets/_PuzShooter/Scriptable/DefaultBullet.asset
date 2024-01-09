@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 916e36dae8d3310428966081b33d2ac4, type: 3}
   m_Name: DefaultBullet
   m_EditorClassIdentifier: 
-  IsPlayersBullet: 0
+  IsPlayersBullet: 1
   Speed: 50
   IsBouncy: 1
   MaxNumOfBounces: 3

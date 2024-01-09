@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyBullet
   m_EditorClassIdentifier: 
   IsPlayersBullet: 0
-  Speed: 10
+  Speed: 50
   IsBouncy: 0
   MaxNumOfBounces: 3
   IsThroWalls: 0

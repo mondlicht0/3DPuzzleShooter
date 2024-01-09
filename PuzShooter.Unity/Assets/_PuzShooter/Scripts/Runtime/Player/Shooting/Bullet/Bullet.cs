@@ -31,7 +31,14 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Bounce(collision);
+        if (_characteristics.IsBouncy)
+        {
+            Bounce(collision);
+
+            return;
+        }
+
+        Destroy(gameObject);
     }
 
     private void InitBullet(Transform player = null)
@@ -49,16 +56,13 @@ public class Bullet : MonoBehaviour
 
     private void Bounce(Collision collision)
     {
-        if (_characteristics.IsBouncy)
-        {
-            if (_currentBounces >= _characteristics.MaxNumOfBounces) Destroy(gameObject);
+        if (_currentBounces >= _characteristics.MaxNumOfBounces) Destroy(gameObject);
 
-            _currentSpeed = _lastVelocity.magnitude;
-            _direction = Vector3.Reflect(_lastVelocity.normalized, new Vector3(collision.contacts[0].normal.x, 0, collision.contacts[0].normal.z));
+        _currentSpeed = _lastVelocity.magnitude;
+        _direction = Vector3.Reflect(_lastVelocity.normalized, new Vector3(collision.contacts[0].normal.x, 0, collision.contacts[0].normal.z));
 
-            _bulletRigidbody.velocity = _direction * Mathf.Max(_currentSpeed, 1);
-            _currentBounces++;
-        }
+        _bulletRigidbody.velocity = _direction * Mathf.Max(_currentSpeed, 1);
+        _currentBounces++;
     }
 
 /*    private void OnTriggerEnter(Collider other)
