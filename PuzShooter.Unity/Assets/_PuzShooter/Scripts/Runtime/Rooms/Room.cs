@@ -1,12 +1,23 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Room : MonoBehaviour
 {
-    [SerializeField] private Enemy[] _enemies;
+    # region FIELDS
+    [SerializeField] private List<Enemy> _enemyList = new List<Enemy>();
     [SerializeField] private Door _door;
+
     private BoxCollider _boxCollider;
+    private bool _isClear;
+    #endregion
+
+    #region PROPERTIES
+    public bool IsClear { get { return _isClear; } }
+    #endregion
+
+    public Action OnRoomClear;
 
     private void Awake()
     {
@@ -15,7 +26,10 @@ public class Room : MonoBehaviour
 
     private void Start()
     {
-        _enemies = transform.GetComponentsInChildren<Enemy>();
+        InitEnemies();
+
+        _enemyList.ForEach(enemy => { enemy.OnDead += CheckAliveEnemies; });
+
         _door = GetComponentInChildren<Door>();
 
         _door.OnDoorEnter += SetEnemiesActive;
@@ -25,24 +39,41 @@ public class Room : MonoBehaviour
 
     private void SetEnemiesActive()
     {
-        if (_enemies != null)
+        if (_enemyList != null)
         {
-            foreach (Enemy enemy in _enemies)
+            foreach (Enemy enemy in _enemyList)
             {
                 enemy.gameObject.SetActive(true);
             }
         }
     }
-
     private void SetEnemiesUnActive()
     {
-        if (_enemies != null)
+        if (_enemyList != null)
         {
-            foreach (Enemy enemy in _enemies)
+            foreach (Enemy enemy in _enemyList)
             {
                 enemy.gameObject.SetActive(false);
             }
         }
+    }
+
+    private void CheckAliveEnemies()
+    {
+        InitEnemies();
+        Debug.Log("KIll");
+        if (_enemyList.Count <= 1)
+        {
+            Debug.Log("Lol");
+            OnRoomClear?.Invoke();
+        }
+    }
+
+    private void InitEnemies()
+    {
+        Enemy[] enemies = transform.GetComponentsInChildren<Enemy>();
+        _enemyList.Clear();
+        _enemyList.AddRange(enemies);
     }
 
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -13,6 +14,8 @@ public class Enemy : MonoBehaviour
     private float _lastShootTime;
 
     public bool IsShot;
+
+    public Action OnDead;
 
     private void Start()
     {
@@ -43,7 +46,9 @@ public class Enemy : MonoBehaviour
     {
         if (collision.collider.GetComponent<Bullet>().Characteristics.IsPlayersBullet)
         {
-            Destroy(gameObject);
+            OnDead?.Invoke();
+
+            gameObject.SetActive(false);
         }
     }
 }

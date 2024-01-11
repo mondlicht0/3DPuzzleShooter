@@ -38,20 +38,14 @@ public class TurnSystem : MonoBehaviour
 
         InitEnemies();
 
-        foreach (Enemy enemy in _enemyList)
-        {
-            enemy.ShootToPlayer();
-        }
+        _enemyList.ForEach(enemy => { enemy.ShootToPlayer(); });
 
         CheckEnemyShots(_enemyList);
     }
 
     private void CheckEnemyShots(List<Enemy> _enemyList)
     {
-        foreach (Enemy enemy in _enemyList)
-        {
-            if (!enemy.IsShot) return;
-        }
+        _enemyList.ForEach(enemy => { if (!enemy.IsShot) return; });
 
         _isEnemyTurn = false;
         PlayerTurn();
