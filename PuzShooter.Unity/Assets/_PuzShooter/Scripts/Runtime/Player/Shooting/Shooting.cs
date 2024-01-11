@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class Shooting : MonoBehaviour
@@ -5,6 +6,8 @@ public class Shooting : MonoBehaviour
     [SerializeField] private Transform _bulletsSpawnPoint;
     [SerializeField] private GameObject _bullet;
     private Controls _controls;
+
+    public Action OnShoot;
 
     private void OnEnable()
     {
@@ -27,5 +30,7 @@ public class Shooting : MonoBehaviour
     public void Shoot(GameObject bullet, Transform bulletsSpawnPoint)
     {
         var newBullet = Instantiate(bullet, bulletsSpawnPoint.position + Vector3.up / 2, Quaternion.identity);
+
+        OnShoot.Invoke();
     }
 }
