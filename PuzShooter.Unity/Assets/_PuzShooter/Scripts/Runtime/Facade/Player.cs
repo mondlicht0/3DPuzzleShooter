@@ -19,4 +19,8 @@ public class Player : MonoBehaviour
 
         PlayerFacade.Init(_characterController, _movement, _aiming, _shooting, _characteristics);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+    }
 }

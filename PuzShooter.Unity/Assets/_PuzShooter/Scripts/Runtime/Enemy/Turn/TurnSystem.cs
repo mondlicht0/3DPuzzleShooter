@@ -1,12 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cysharp.Threading;
-using Cysharp.Threading.Tasks;
 
 public class TurnSystem : MonoBehaviour
 {
-    private Shooting _playerShooting;
     private List<Enemy> _enemyList = new List<Enemy>();
 
     [SerializeField, Range(1f, 8f)]

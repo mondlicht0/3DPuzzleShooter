@@ -44,7 +44,7 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.GetComponent<Bullet>().Characteristics.IsPlayersBullet)
+        if (collision.collider.gameObject.layer == 6)
         {
             OnDead?.Invoke();
 

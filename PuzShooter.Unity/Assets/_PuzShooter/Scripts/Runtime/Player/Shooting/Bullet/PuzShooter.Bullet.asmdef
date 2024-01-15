@@ -1,10 +1,9 @@
 {
-    "name": "PuzShooter",
+    "name": "PuzShooter.Bullet",
     "rootNamespace": "",
     "references": [
-        "GUID:75469ad4d38634e559750d17036d5f7c",
-        "GUID:4307f53044263cf4b835bd812fc161a4",
-        "GUID:f51ebe6a0ceec4240a699833d6309b23"
+        "GUID:145dc25f9d2689b4fb1a578ce1447bf6",
+        "GUID:394afe76de50b0644b3b72da3e5e7ca1"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

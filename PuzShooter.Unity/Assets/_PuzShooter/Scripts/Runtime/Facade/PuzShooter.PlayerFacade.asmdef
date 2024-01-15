@@ -1,9 +1,9 @@
 {
-    "name": "Player",
+    "name": "PuzShooter.PlayerFacade",
     "rootNamespace": "",
     "references": [
-        "GUID:75469ad4d38634e559750d17036d5f7c",
-        "GUID:4307f53044263cf4b835bd812fc161a4"
+        "GUID:31bae9530b4a23a459849e5c24539cc2",
+        "GUID:394afe76de50b0644b3b72da3e5e7ca1"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

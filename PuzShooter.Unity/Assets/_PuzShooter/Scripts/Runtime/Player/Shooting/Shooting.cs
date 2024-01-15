@@ -5,6 +5,8 @@ public class Shooting : MonoBehaviour
 {
     [SerializeField] private Transform _bulletsSpawnPoint;
     [SerializeField] private GameObject _bullet;
+
+    [SerializeField] private float _ammo;
     private Controls _controls;
 
     public Action OnShoot;
@@ -29,8 +31,11 @@ public class Shooting : MonoBehaviour
 
     public void Shoot(GameObject bullet, Transform bulletsSpawnPoint)
     {
-        var newBullet = Instantiate(bullet, bulletsSpawnPoint.position + Vector3.up / 2, Quaternion.identity);
-
-        OnShoot.Invoke();
+        if (_ammo > 0)
+        {
+            var newBullet = Instantiate(bullet, bulletsSpawnPoint.position + Vector3.up / 2, Quaternion.identity);
+            _ammo--;
+            OnShoot.Invoke();
+        }
     }
 }

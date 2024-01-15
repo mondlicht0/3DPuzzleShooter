@@ -8,6 +8,7 @@ public class Room : MonoBehaviour
     # region FIELDS
     [SerializeField] private List<Enemy> _enemyList = new List<Enemy>();
     [SerializeField] private Door _door;
+    [SerializeField] private float _ammoGainCount;
 
     private BoxCollider _boxCollider;
     private bool _isClear;
