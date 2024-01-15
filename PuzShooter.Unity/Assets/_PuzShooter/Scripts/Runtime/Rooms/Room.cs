@@ -8,6 +8,7 @@ public class Room : MonoBehaviour
     # region FIELDS
     [SerializeField] private List<Enemy> _enemyList = new List<Enemy>();
     [SerializeField] private Door _door;
+    [SerializeField] private Shooting _playerShooting;
     [SerializeField] private float _ammoGainCount;
 
     private BoxCollider _boxCollider;
@@ -16,6 +17,8 @@ public class Room : MonoBehaviour
 
     #region PROPERTIES
     public bool IsClear { get { return _isClear; } }
+    public float AmmoGainCount { get { return _ammoGainCount; } } 
+    public Door ItsDoor { get { return _door; } }
     #endregion
 
     public Action OnRoomClear;
@@ -23,6 +26,11 @@ public class Room : MonoBehaviour
     private void Awake()
     {
         _boxCollider = GetComponent<BoxCollider>();
+        _playerShooting = FindObjectOfType<Shooting>();
+        _door = GetComponentInChildren<Door>();
+
+        _door.OnPlayerEnter += _playerShooting.ResetAmmo;
+        _door.OnDoorEnter += SetEnemiesActive;
     }
 
     private void Start()
@@ -31,9 +39,6 @@ public class Room : MonoBehaviour
 
         _enemyList.ForEach(enemy => { enemy.OnDead += CheckAliveEnemies; });
 
-        _door = GetComponentInChildren<Door>();
-
-        _door.OnDoorEnter += SetEnemiesActive;
 
         SetEnemiesUnActive();
     }

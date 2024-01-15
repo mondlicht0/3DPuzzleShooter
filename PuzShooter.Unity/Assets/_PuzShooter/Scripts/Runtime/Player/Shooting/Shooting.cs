@@ -38,4 +38,9 @@ public class Shooting : MonoBehaviour
             OnShoot.Invoke();
         }
     }
+
+    public void ResetAmmo(float amount)
+    {
+        _ammo = amount;
+    }
 }

@@ -2,7 +2,8 @@
     "name": "PuzShooter.Rooms",
     "rootNamespace": "",
     "references": [
-        "GUID:00397c18a595bce439c937ce8c6f6bdd"
+        "GUID:00397c18a595bce439c937ce8c6f6bdd",
+        "GUID:394afe76de50b0644b3b72da3e5e7ca1"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

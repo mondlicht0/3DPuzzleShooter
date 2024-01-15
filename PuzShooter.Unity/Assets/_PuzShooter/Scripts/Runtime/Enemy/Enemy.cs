@@ -7,9 +7,6 @@ public class Enemy : MonoBehaviour
     [SerializeField] private Transform _bulletsSpawnPoint;
     [SerializeField] private GameObject _bulletPrefab;
 
-    private Player _player;
-    private TurnSystem _turnSystem;
-
     private float _fireRate = 2f;
     private float _lastShootTime;
 
@@ -19,8 +16,6 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        _player = FindObjectOfType<Player>();
-        _turnSystem = FindObjectOfType<TurnSystem>();
     }
 
     private void Update()
@@ -36,8 +31,6 @@ public class Enemy : MonoBehaviour
     public void ShootToPlayer()
     {
         var newBullet = Instantiate(_bulletPrefab, _bulletsSpawnPoint.position + Vector3.up, Quaternion.identity);
-
-        _turnSystem.PlayerTurn();
 
         IsShot = true;
     }

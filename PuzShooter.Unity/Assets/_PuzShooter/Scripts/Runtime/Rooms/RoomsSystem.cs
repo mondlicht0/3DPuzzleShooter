@@ -40,6 +40,11 @@ public class RoomsSystem : MonoBehaviour
         _doors.ForEach(door => { door.GetComponent<MeshRenderer>().enabled = false; door.GetComponent<BoxCollider>().isTrigger = true; });
     }
 
+    private void ClearTrigger()
+    {
+
+    }
+
     private void SetCurrentRoom(Room room)
     {
         _currentRoom = room;

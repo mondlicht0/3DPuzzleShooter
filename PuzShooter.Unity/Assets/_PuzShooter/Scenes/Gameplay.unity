@@ -763,6 +763,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyList: []
   _door: {fileID: 0}
+  _ammoGainCount: 0
 --- !u!1 &221080586
 GameObject:
   m_ObjectHideFlags: 0
@@ -3102,6 +3103,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyList: []
   _door: {fileID: 0}
+  _ammoGainCount: 0
 --- !u!1 &1161104341
 GameObject:
   m_ObjectHideFlags: 0
@@ -3294,6 +3296,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyList: []
   _door: {fileID: 0}
+  _ammoGainCount: 0
 --- !u!1 &1197945234
 GameObject:
   m_ObjectHideFlags: 0
@@ -4105,6 +4108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyList: []
   _door: {fileID: 0}
+  _ammoGainCount: 0
 --- !u!1 &1348557977
 GameObject:
   m_ObjectHideFlags: 0
@@ -5011,6 +5015,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletsSpawnPoint: {fileID: 1574973629}
   _bullet: {fileID: 7743626916899197540, guid: e72b4852995054a43b894e2123568a9c, type: 3}
+  _ammo: 5
 --- !u!1 &1934299372
 GameObject:
   m_ObjectHideFlags: 0
