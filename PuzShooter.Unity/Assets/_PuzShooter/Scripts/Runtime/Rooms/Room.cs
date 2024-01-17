@@ -6,13 +6,15 @@ using UnityEngine;
 public class Room : MonoBehaviour
 {
     # region FIELDS
-    [SerializeField] private List<Enemy> _enemyList = new List<Enemy>();
-    [SerializeField] private Door _door;
-    [SerializeField] private Shooting _playerShooting;
-    [SerializeField] private float _ammoGainCount;
+    public RoomType RoomType;
 
+    [SerializeField] private List<Enemy> _enemyList = new List<Enemy>();
+    [SerializeField] private float _ammoGainCount;
+    [SerializeField] private bool _isClear;
+
+    private Door _door;
+    private Shooting _playerShooting;
     private BoxCollider _boxCollider;
-    private bool _isClear;
     #endregion
 
     #region PROPERTIES
@@ -71,9 +73,11 @@ public class Room : MonoBehaviour
         if (_enemyList.Count <= 1)
         {
             Debug.Log("Lol");
+            _isClear = true;
             OnRoomClear?.Invoke();
         }
     }
+
 
     private void InitEnemies()
     {
@@ -82,4 +86,10 @@ public class Room : MonoBehaviour
         _enemyList.AddRange(enemies);
     }
 
+}
+
+public enum RoomType
+{
+    Default,
+    EndRoom
 }

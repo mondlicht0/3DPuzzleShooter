@@ -14,20 +14,6 @@ public class Enemy : MonoBehaviour
 
     public Action OnDead;
 
-    private void Start()
-    {
-    }
-
-    private void Update()
-    {
-/*        if (Time.time > _fireRate + _lastShootTime && _turnSystem.IsEnemyTurn)
-        {
-            _lastShootTime = Time.time;
-
-            ShootToPlayer();
-        }*/
-    }
-
     public void ShootToPlayer()
     {
         var newBullet = Instantiate(_bulletPrefab, _bulletsSpawnPoint.position + Vector3.up, Quaternion.identity);

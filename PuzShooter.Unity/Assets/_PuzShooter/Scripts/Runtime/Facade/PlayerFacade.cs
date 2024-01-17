@@ -8,7 +8,6 @@ public static class PlayerFacade
     public static Shooting Shooting { get; private set; }
     public static Aiming Aiming { get; private set; }
     public static PlayerCharacteristics Characteristics { get; private set; }
-
     public static bool IsInitialized { get; private set; }
 
     public static void Init(CharacterController playerController, Movement movement, Aiming aiming, Shooting shooting, PlayerCharacteristics characteristics)

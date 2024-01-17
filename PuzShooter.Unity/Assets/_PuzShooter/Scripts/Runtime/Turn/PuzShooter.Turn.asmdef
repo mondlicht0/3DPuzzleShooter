@@ -1,0 +1,18 @@
+{
+    "name": "PuzShooter.Turn",
+    "rootNamespace": "",
+    "references": [
+        "GUID:00397c18a595bce439c937ce8c6f6bdd",
+        "GUID:145dc25f9d2689b4fb1a578ce1447bf6",
+        "GUID:394afe76de50b0644b3b72da3e5e7ca1"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

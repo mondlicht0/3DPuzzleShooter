@@ -38,7 +38,7 @@ public class Bullet : MonoBehaviour
             return;
         }
 
-        Destroy(gameObject);
+        collision.collider.
     }
 
     private void InitBullet(Transform player = null)
