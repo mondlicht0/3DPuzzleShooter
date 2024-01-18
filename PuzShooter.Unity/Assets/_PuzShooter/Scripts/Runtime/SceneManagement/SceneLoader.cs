@@ -11,6 +11,26 @@ public class SceneLoader : MonoBehaviour
     private List<AsyncOperation> _scenesLoading = new List<AsyncOperation>();
     private float _totalSceneProgress;
 
+    private Controls _controls;
+
+    private void OnEnable()
+    {
+        _controls.Enable();
+
+        _controls.Gameplay.ResetLevel.performed += ctx => LoadLevel(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void OnDisable()
+    {
+        _controls.Disable();
+    }
+
+    private void Awake()
+    {
+        _controls = new Controls();
+
+    }
+
     public async void LoadNextLevel()
     {
         await LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
@@ -36,7 +56,7 @@ public class SceneLoader : MonoBehaviour
             await UniTask.WaitUntil(() => scene.isDone);
         }
 
-        SceneManager.LoadScene((int) SceneIndexes.LEVEL2);
+        SceneManager.LoadScene(buildIndex);
 
     }
 }

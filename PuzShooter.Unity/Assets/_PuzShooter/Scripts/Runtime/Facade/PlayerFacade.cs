@@ -7,13 +7,15 @@ public static class PlayerFacade
     public static Movement Movement { get; private set; }
     public static Shooting Shooting { get; private set; }
     public static Aiming Aiming { get; private set; }
+    public static PlayerHealth Health { get; private set; }
     public static PlayerCharacteristics Characteristics { get; private set; }
     public static bool IsInitialized { get; private set; }
 
-    public static void Init(CharacterController playerController, Movement movement, Aiming aiming, Shooting shooting, PlayerCharacteristics characteristics)
+    public static void Init(CharacterController playerController, Movement movement, Aiming aiming, Shooting shooting, PlayerHealth health, PlayerCharacteristics characteristics)
     {
         Movement = movement;
         Aiming = aiming;
+        Health = health;
         PlayerController = playerController;
         Characteristics = characteristics;
         Shooting = shooting;

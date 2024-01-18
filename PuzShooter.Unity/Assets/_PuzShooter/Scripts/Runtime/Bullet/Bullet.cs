@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class Bullet : MonoBehaviour
+public class Bullet : MonoBehaviour, IHealthVisitor
 {
     [SerializeField] private BulletCharacteristics _characteristics;
 
@@ -28,17 +28,31 @@ public class Bullet : MonoBehaviour
     {
         _lastVelocity = _bulletRigidbody.velocity;
     }
+    public void Kill(PlayerHealth player)
+    {
+        player.Destroy();
+        Debug.Log("Playerdjfjfd");
+    }
+
+    public void Kill(EnemyHealth enemy)
+    {
+        enemy.Destroy();
+    }
+
 
     private void OnCollisionEnter(Collision collision)
     {
+        KillUnit(collision);
+
         if (_characteristics.IsBouncy)
         {
             Bounce(collision);
-
-            return;
         }
 
-        collision.collider.
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void InitBullet(Transform player = null)
@@ -65,8 +79,13 @@ public class Bullet : MonoBehaviour
         _currentBounces++;
     }
 
-/*    private void OnTriggerEnter(Collider other)
+    private void KillUnit(Collision collision)
     {
-        Destroy(other.gameObject);
-    }*/
+        if (collision.collider.TryGetComponent(out Health health))
+        {
+            health.Accept(this);
+            return;
+        }
+    }
+
 }

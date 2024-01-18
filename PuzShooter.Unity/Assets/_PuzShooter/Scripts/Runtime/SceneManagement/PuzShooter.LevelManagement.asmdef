@@ -1,10 +1,10 @@
 {
-    "name": "PuzShooter.Rooms",
+    "name": "PuzShooter.LevelManagement",
     "rootNamespace": "",
     "references": [
-        "GUID:00397c18a595bce439c937ce8c6f6bdd",
-        "GUID:394afe76de50b0644b3b72da3e5e7ca1",
-        "GUID:da791b3e2cc5d2e438f9e2c61bc74914"
+        "GUID:fc6c700212e3dce488614233be9bf688",
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:f51ebe6a0ceec4240a699833d6309b23"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

@@ -1,10 +1,8 @@
 {
-    "name": "PuzShooter.Rooms",
+    "name": "PuzShooter.Health",
     "rootNamespace": "",
     "references": [
-        "GUID:00397c18a595bce439c937ce8c6f6bdd",
-        "GUID:394afe76de50b0644b3b72da3e5e7ca1",
-        "GUID:da791b3e2cc5d2e438f9e2c61bc74914"
+        "GUID:00397c18a595bce439c937ce8c6f6bdd"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

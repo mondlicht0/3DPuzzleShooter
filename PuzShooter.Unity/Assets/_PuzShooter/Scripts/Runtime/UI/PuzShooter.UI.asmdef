@@ -1,13 +1,9 @@
 {
-    "name": "PuzShooter.PlayerFacade",
+    "name": "PuzShooter.UI",
     "rootNamespace": "",
     "references": [
-        "GUID:e843f4e9d5bc8ac4fbf9fcfbb9364bfa",
-        "GUID:31bae9530b4a23a459849e5c24539cc2",
-        "GUID:394afe76de50b0644b3b72da3e5e7ca1",
-        "GUID:a4c2a7abaac27a040ba54f5aaa51ca1b",
         "GUID:da791b3e2cc5d2e438f9e2c61bc74914",
-        "GUID:60b0de8c35a8a7a4dba2a59038ef580b"
+        "GUID:fc6c700212e3dce488614233be9bf688"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

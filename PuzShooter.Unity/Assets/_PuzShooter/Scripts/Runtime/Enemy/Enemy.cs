@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using System;
 using UnityEngine;
 
@@ -6,28 +7,22 @@ public class Enemy : MonoBehaviour
     [SerializeField] private bool _isAlive = false;
     [SerializeField] private Transform _bulletsSpawnPoint;
     [SerializeField] private GameObject _bulletPrefab;
-
-    private float _fireRate = 2f;
-    private float _lastShootTime;
+    private LineRenderer _laser;
 
     public bool IsShot;
 
-    public Action OnDead;
+    private void Awake()
+    {
+        _laser = GetComponentInChildren<LineRenderer>();
+    }
 
-    public void ShootToPlayer()
+    public async UniTask ShootToPlayer()
     {
         var newBullet = Instantiate(_bulletPrefab, _bulletsSpawnPoint.position + Vector3.up, Quaternion.identity);
 
+        await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
+        _laser.enabled = true;
+
         IsShot = true;
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.collider.gameObject.layer == 6)
-        {
-            OnDead?.Invoke();
-
-            gameObject.SetActive(false);
-        }
     }
 }

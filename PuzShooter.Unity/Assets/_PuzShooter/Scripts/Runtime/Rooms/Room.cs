@@ -8,7 +8,7 @@ public class Room : MonoBehaviour
     # region FIELDS
     public RoomType RoomType;
 
-    [SerializeField] private List<Enemy> _enemyList = new List<Enemy>();
+    [SerializeField] private List<EnemyHealth> _enemyList = new List<EnemyHealth>();
     [SerializeField] private float _ammoGainCount;
     [SerializeField] private bool _isClear;
 
@@ -49,7 +49,7 @@ public class Room : MonoBehaviour
     {
         if (_enemyList != null)
         {
-            foreach (Enemy enemy in _enemyList)
+            foreach (EnemyHealth enemy in _enemyList)
             {
                 enemy.gameObject.SetActive(true);
             }
@@ -59,7 +59,7 @@ public class Room : MonoBehaviour
     {
         if (_enemyList != null)
         {
-            foreach (Enemy enemy in _enemyList)
+            foreach (EnemyHealth enemy in _enemyList)
             {
                 enemy.gameObject.SetActive(false);
             }
@@ -81,7 +81,7 @@ public class Room : MonoBehaviour
 
     private void InitEnemies()
     {
-        Enemy[] enemies = transform.GetComponentsInChildren<Enemy>();
+        EnemyHealth[] enemies = transform.GetComponentsInChildren<EnemyHealth>();
         _enemyList.Clear();
         _enemyList.AddRange(enemies);
     }
