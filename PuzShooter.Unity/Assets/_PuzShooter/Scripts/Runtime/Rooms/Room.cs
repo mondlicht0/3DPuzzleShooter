@@ -37,7 +37,7 @@ public class Room : MonoBehaviour
 
     private void Start()
     {
-        InitEnemies();
+        InitEnemies(true);
 
         _enemyList.ForEach(enemy => { enemy.OnDead += CheckAliveEnemies; });
 
@@ -47,28 +47,24 @@ public class Room : MonoBehaviour
 
     private void SetEnemiesActive()
     {
+        InitEnemies(true);
         if (_enemyList != null)
         {
-            foreach (EnemyHealth enemy in _enemyList)
-            {
-                enemy.gameObject.SetActive(true);
-            }
+            _enemyList.ForEach(enemy => { enemy.gameObject.SetActive(true); enemy.GetComponentInChildren<LineRenderer>().enabled = true; });
         }
     }
     private void SetEnemiesUnActive()
     {
+        InitEnemies(true);
         if (_enemyList != null)
         {
-            foreach (EnemyHealth enemy in _enemyList)
-            {
-                enemy.gameObject.SetActive(false);
-            }
+            _enemyList.ForEach(enemy => { enemy.gameObject.SetActive(false); enemy.GetComponentInChildren<LineRenderer>().enabled = false; });
         }
     }
 
     private void CheckAliveEnemies()
     {
-        InitEnemies();
+        InitEnemies(false);
         Debug.Log("KIll");
         if (_enemyList.Count <= 1)
         {
@@ -79,9 +75,9 @@ public class Room : MonoBehaviour
     }
 
 
-    private void InitEnemies()
+    private void InitEnemies(bool includeInActive)
     {
-        EnemyHealth[] enemies = transform.GetComponentsInChildren<EnemyHealth>();
+        EnemyHealth[] enemies = transform.GetComponentsInChildren<EnemyHealth>(includeInActive);
         _enemyList.Clear();
         _enemyList.AddRange(enemies);
     }

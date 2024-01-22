@@ -18,6 +18,8 @@ public class EnemyLaser : MonoBehaviour
         {
             _laser.SetPosition(0, PlayerFacade.PlayerController.transform.position);
         }
+
+        Aim();
     }
 
     private void TurnOffLaser()
@@ -26,5 +28,14 @@ public class EnemyLaser : MonoBehaviour
         {
             _laser.enabled = false;
         }
+    }
+
+    private void Aim()
+    {
+        Vector3 _lookDirection = PlayerFacade.PlayerController.transform.position - transform.position;
+        _lookDirection.y = 0;
+
+        transform.rotation = Quaternion.LookRotation(_lookDirection);
+
     }
 }

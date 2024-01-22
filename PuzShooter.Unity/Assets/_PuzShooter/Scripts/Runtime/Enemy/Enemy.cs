@@ -16,12 +16,15 @@ public class Enemy : MonoBehaviour
         _laser = GetComponentInChildren<LineRenderer>();
     }
 
+    private void Update()
+    {
+
+    }
+
     public async UniTask ShootToPlayer()
     {
         var newBullet = Instantiate(_bulletPrefab, _bulletsSpawnPoint.position + Vector3.up, Quaternion.identity);
-
         await UniTask.Delay(TimeSpan.FromSeconds(0.5f));
-        _laser.enabled = true;
 
         IsShot = true;
     }

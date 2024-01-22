@@ -50,7 +50,7 @@ public class TurnSystem : MonoBehaviour
 
     private void InitEnemies()
     {
-        Enemy[] enemies = FindObjectsOfType<Enemy>();
+        Enemy[] enemies = FindObjectsOfType<Enemy>(false);
 
         _enemyList.Clear();
         _enemyList.AddRange(enemies);
