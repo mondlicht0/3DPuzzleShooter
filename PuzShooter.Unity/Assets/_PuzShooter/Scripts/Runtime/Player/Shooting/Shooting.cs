@@ -6,9 +6,10 @@ public class Shooting : MonoBehaviour
     [SerializeField] private Transform _bulletsSpawnPoint;
     [SerializeField] private GameObject _bullet;
 
-    [SerializeField] private float _ammo;
+    [SerializeField] private int _ammo;
     private Controls _controls;
 
+    public int Ammo { get { return _ammo; } }
     public Action OnShoot;
 
     private void OnEnable()
@@ -39,7 +40,7 @@ public class Shooting : MonoBehaviour
         }
     }
 
-    public void ResetAmmo(float amount)
+    public void ResetAmmo(int amount)
     {
         _ammo = amount;
     }

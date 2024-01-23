@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   IsPlayersBullet: 0
   Speed: 100
-  IsBouncy: 1
+  IsBouncy: 0
   MaxNumOfBounces: 3
   IsThroWalls: 0

@@ -9,7 +9,7 @@ public class Room : MonoBehaviour
     public RoomType RoomType;
 
     [SerializeField] private List<EnemyHealth> _enemyList = new List<EnemyHealth>();
-    [SerializeField] private float _ammoGainCount;
+    [SerializeField] private int _ammoGainCount;
     [SerializeField] private bool _isClear;
 
     private Door _door;
@@ -19,7 +19,7 @@ public class Room : MonoBehaviour
 
     #region PROPERTIES
     public bool IsClear { get { return _isClear; } }
-    public float AmmoGainCount { get { return _ammoGainCount; } } 
+    public int AmmoGainCount { get { return _ammoGainCount; } } 
     public Door ItsDoor { get { return _door; } }
     #endregion
 

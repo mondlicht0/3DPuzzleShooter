@@ -8,7 +8,7 @@ public class Door : MonoBehaviour
     private Room _itsRoom;
     public Action OnDoorEnter;
     public Action<Room> OnRoomEnter;
-    public Action<float> OnPlayerEnter;
+    public Action<int> OnPlayerEnter;
 
     public Room ItsRoom {  get { return _itsRoom; } }
 

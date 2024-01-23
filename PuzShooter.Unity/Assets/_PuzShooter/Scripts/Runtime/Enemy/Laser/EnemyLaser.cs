@@ -17,9 +17,9 @@ public class EnemyLaser : MonoBehaviour
         if (PlayerFacade.PlayerController != null)
         {
             _laser.SetPosition(0, PlayerFacade.PlayerController.transform.position);
+            Aim();
         }
 
-        Aim();
     }
 
     private void TurnOffLaser()
